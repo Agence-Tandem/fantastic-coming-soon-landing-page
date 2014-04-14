@@ -1,0 +1,283 @@
+body,.modal-content {
+/* background:#EFEFEF url(../images/bg.jpg) repeat top left; */
+}
+
+.content {
+position:relative;
+text-align:center;
+padding-top:20px;
+}
+
+#comingsoon_block {
+	background-color: #F2F2F2;
+	margin : 20px 0px 0px;
+	padding : 1px 0px 40px;
+}
+
+.counter {
+display:inline-block;
+}
+
+br {
+clear:both;
+}
+
+.cntSeparator {
+font-size:54px;
+margin:10px 7px;
+}
+
+.units {
+margin:7px 3px;
+}
+
+.units ul li {
+display:inline-block;
+width:70px;
+margin-right:65px;
+font-size:13px;
+font-weight:bold;
+text-align:left;
+}
+
+.social-icons,.unsubscribesucess {
+padding-top:20px;
+}
+
+
+.social-icons ul li {
+display:inline-block;
+/* width:30px; */
+/* text-align:left; */
+}
+
+.social-icons ul {
+	margin : 0px;
+	padding : 0px;
+}
+.social-icons li {
+	padding : 10px;
+}
+
+
+.social-icons ul li a {
+color:#333;
+text-decoration:none;
+}
+
+.btn {
+background-color:#333;
+border-color:#333;
+}
+
+.form-control:focus {
+border:1px solid #ccc;
+outline:0;
+-webkit-box-shadow:inset 0 1px 1px rgba(85,85,85,0), 0 0 8px rgba(85,85,85,0);
+-moz-box-shadow:inset 0 1px 1px rgba(85,85,85,0), 0 0 8px rgba(85,85,85,0);
+box-shadow:inset 0 1px 1px rgba(85,85,85,0), 0 0 8px rgba(85,85,85,0);
+}
+
+.workprogress {
+display:inline-block;
+width:50%;
+padding-top:30px;
+max-width: 505px;
+}
+
+.workprogress .progress {
+height:30px;
+background-color:#f0f0f0;
+}
+
+.workprogress .progress-bar {
+background-color:#D13A7A;
+color:#000;
+font-size:13px;
+font-weight:bold;
+padding:6px 0;
+}
+
+.progressbar-front-text {
+display:block;
+}
+
+.progressbar-back-text {
+display:none;
+}
+
+.progress .progress-bar {
+-webkit-transition:width 3s ease-in-out;
+-moz-transition:width 3s ease-in-out;
+-ms-transition:width 3s ease-in-out;
+-o-transition:width 3s ease-in-out;
+transition:width 3s ease-in-out;
+}
+
+#map-canvas {
+width:100%;
+height:400px;
+}
+
+.form-horizontal .form-group {
+margin:15px 0;
+}
+
+.modal-header {
+border:none;
+padding:20px 20px 0;
+}
+
+#info .modal-body {
+text-align:justify;
+}
+
+.service {
+text-align:center;
+padding-top:15px;
+}
+
+#subscribestatus .alert {
+display:inline-block;
+border:0;
+margin:0;
+color :#D13A7A;
+font-weight:bold;
+}
+
+#subscribestatus .alert .close {
+opacity:1;
+top:0;
+}
+
+#subscribestatus {
+position:absolute;
+text-align:center;
+width:100%
+}
+
+.admin {
+position:relative;
+text-align:center;
+padding-top:10px;
+}
+
+.loginpanel {
+padding-top:100px;
+}
+
+.login {
+width:25%;
+display:inline-block;
+text-align:left;
+padding-top:50px;
+}
+
+.logout {
+padding:25px;
+}
+
+.logout p {
+float:right;
+font-weight:bold;
+}
+
+.subscriberls {
+width:75%;
+display:inline-block;
+}
+
+.subscriberls .header {
+padding-bottom:30px;
+}
+
+.subscriberls p {
+font-weight:bold;
+padding-bottom:25px;
+}
+
+.subscriberls .empty {
+padding-top:200px;
+font-weight:bold;
+color:#D13A7A;
+}
+
+.subscriberls .header img {
+float:left;
+}
+
+.subscriberls .option {
+text-align:left;
+padding-top:10px;
+padding-bottom:25px;
+}
+
+.subscriberls .pagination {
+margin:0;
+}
+
+.pagination li a {
+color:#000;
+}
+
+.pagination .active span:hover {
+background-color:#D13A7A;
+color:#000;
+border-color:#D13A7A;
+}
+
+th {
+text-align:center;
+}
+
+.content h1,i:hover, .modal h2,.modal h4,.service i,.logout a,.subscriberls .table a {
+color:#D13A7A;
+}
+
+.subscribe,.modal-body,.unsubscribe {
+padding-top:15px;
+}
+
+.subscribe input[type=text],input[type=email],.unsubscribe input[type=text],input[type=email] {
+width:25%;
+display:inline-block;
+}
+
+.btn:hover,.btn:focus,.btn:active,.btn.active,.pagination .active span {
+background-color:#D13A7A;
+border-color:#D13A7A;
+}
+
+#map label,#map-canvas label {
+width:auto!important;
+display:inline!important;
+}
+
+#map img,#map-canvas img {
+max-width:none!important;
+}
+
+.form-horizontal,.modal {
+text-align:left;
+}
+
+.service h4,.service i:hover {
+color:#333;
+}
+.subscriberls .subtable
+{
+clear:both;
+}
+
+@media screen and (max-width: 700px) { 
+#seconds,#cnt_8,#cnt_9,#cnt_10 {
+visibility:hidden;
+display:none;
+}
+}
+@media screen and (max-width: 600px) { 
+#minutes,#cnt_5,#cnt_6,#cnt_7,#seconds,#cnt_8,#cnt_9,#cnt_10 {
+visibility:hidden;
+display:none;
+}
+}
