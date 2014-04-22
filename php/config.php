@@ -5,16 +5,34 @@ $conf['db_username'] = 'root'; // MySQL username
 $conf['db_password'] = ''; // MySQL password
 $conf['db_name'] = 'coming_soon'; // MySQL database name
 $conf['db_table_subscribers'] = 'subscribers'; // MySQL table to store emails
+$conf['db_table_settings'] = 'settings'; // MySQL table to store emails
+
+
+// Logo image
+$conf['logo_file'] = 'images/logo.png';
+$conf['logo_width'] = '252';
+$conf['logo_height'] = '122';
+$conf['logo_alt_text'] = 'Fantastic Coming Soon Landing Page';
+
+
+// Colours
+$conf['colour_background'] = '#FFFFFF';
+$conf['colour_font'] = '#333333';
+$conf['colour_main'] = '#D13A7A';
+$conf['colour_block'] = '#F2F2F2';
+$conf['colour_progressbar'] = '#D13A7A';
+$conf['colour_progressbar_background'] = '#F0F0F0';
+$conf['colour_progressbar_font'] = '#333333';
 
 
 // Website name
-$conf['website_name'] = 'My Website'; // Name of the Website as it appear on page and emails
-// $conf['website_url'] = 'http://mydomain.com'; // Address of the coming soon landing page
+$conf['website_name'] = 'Fantastic Coming Soon Landing Page'; // Name of the Website as it appear on page and emails
 
 
 // Countdown
+$conf['countdown_activated'] = TRUE; // Show or hide the countdown with TRUE or FALSE
 $conf['countdown_day'] = 1;
-$conf['countdown_month'] = 6;
+$conf['countdown_month'] = 11;
 $conf['countdown_year'] = 2014;
 $conf['countdown_hour'] = 0; // (0-24)
 $conf['countdown_min'] = 0; // (0-60)
@@ -24,7 +42,13 @@ $conf['countdown_timer'] = "00:00:00:00"; // dd:hh:mm:ss
 
 
 // Progress bar
-$conf['progress_bar_percent'] = 20; // Percentage of the prgress bar
+$conf['progressbar_activated'] = TRUE;
+$conf['progressbar_percent'] = 20; // Percentage of the prgress bar
+
+
+// Newsletter
+$conf['newsletter_activated'] = TRUE;
+$conf['newsletter_email'] = 'newsletter@localhost';
 
 
 // Social networks
@@ -35,24 +59,35 @@ $conf['linkedin'] = 'https://linkedin.com'; // Remove or leave empty if do not u
 
 
 // Google map
-$conf['map_latitude'] = 43.948403;
-$conf['map_longitude'] = 4.802082;
+$conf['map_activated'] = TRUE;
+$conf['map_latitude'] = 43.948220;
+$conf['map_longitude'] = 4.802000;
 $conf['map_markertitle'] = "Tandem";
 $conf['map_infowindow_title'] = '<b>Tandem</b>'; // HTML formated, used in Google Map & Contact
-$conf['map_infowindow_address'] = '<p>6bis rue Saint Thomas d\'Aquin,<br />84000 Avignon, France</p>'; // HTML formated, used in Google Map & Contact
+$conf['map_infowindow_address'] = '<p>6 bis rue Saint Thomas d\'Aquin,<br />84000 Avignon, France</p>'; // HTML formated, used in Google Map & Contact
 
-// Phone & Fax
-$conf['phone_fax'] = '<p>Tel : +33 (0)490 825 097<br />Fax : +33 (0)490 824 119</p>' ;
+// Contact
+$conf['contact_activated'] = TRUE; // Show or hide the contact form
+$conf['phone_fax'] = '<p>Tel : 	+33 490 825 097<br />Fax : +33 490 824 119</p>' ;
+
 
 // Email address used to send emails
-$conf['email_address'] = 'coming.soon@mydomain.com'; // Email address sending all the emails messages
-$conf['email_from_name'] = 'Coming Soon MyDomain.com'; // Email from 
+$conf['email_address'] = 'contact@localhost'; // Email address sending all the emails messages
+$conf['email_from_name'] = 'Fantastic Coming Soon Landing Page'; // Email from 
+
+
+// About
+$conf['about_activated'] = TRUE; // Show or hide the about page with TRUE or FALSE
+
+
+// Google analytics
+ $conf['google_analytics'] = ''; //.enter the Google Analytics identification UA-XXXX-Y, leave it empty or remove this line if you do not want the use it
 
 
 // Admin access
 $conf['admin_username'] = 'admin'; // Administrator username
 $conf['admin_password'] = 'admin'; // Administrator password
-$conf['admin_cookie'] = 'Coming Soon Landing Page by Tandem'; // Administrator cookie identification
+$conf['admin_cookie'] = 'Coming Soon Landing Page'; // Administrator cookie identification
 
 
 // Admin pagination
@@ -61,15 +96,8 @@ $conf['show_page_numbers'] = TRUE; // Hide / show page numbers button
 $conf['show_prev_next'] = TRUE; // Hide / show previous and next button
 
 
-// Logo image
-$conf['logo_file'] = 'images/logo.png';
-$conf['logo_width'] = '252';
-$conf['logo_height'] = '122';
-$conf['logo_alt_text'] = 'Keywords on my logo image';
-
-
 // Language used in this installation
-$conf['current_language'] = 'en'; // Select a language in the /languages/ directory
+$conf['current_language'] = 'fr'; // Select a language in the /languages/ directory
 // Edit the language file in the /languages/ folder to adjust content to your specific needs
 
 
@@ -82,8 +110,8 @@ $conf['multilingual'] = TRUE; // Use TRUE to activate the multiligual functional
 
 // adress of the pages for all the available languages
 $language = array (
-	'fr' => 'http://localhost/coming-soon-landing-page/master/fr', // repeat for all the needed languages 
-	'en' => 'http://localhost/coming-soon-landing-page/master/',
+	'en' => 'http://localhost/coming-soon-landing-page/master/fr', // repeat for all the needed languages 
+	'fr' => 'http://localhost/coming-soon-landing-page/master/',
 );
 
 
@@ -186,67 +214,4 @@ $lang_code = array (
 	'yi' => 'Yiddish',
 	'zh' => 'Chinese',
 );
-
-
-/*
- * 
- * Do not edit the code below
- * 
- */
-
-
-// Language redirection
-
-if ($conf['multilingual']) {
-	// check the language cookie
-	if(!isset($_COOKIE["comingsoon_language"])) {
-		// Check to see that the global language server variable isset()
-		if(isset($_SERVER['HTTP_ACCEPT_LANGUAGE'])){
-			// 2 characters language code
-			$lc = substr($_SERVER['HTTP_ACCEPT_LANGUAGE'], 0, 2);
-			// if this language exist
-			if(isset($language[$lc]) && $lc!=$conf['current_language']) {
-				// redirection to the language;
-				header('Status: 302 Found', false, 302);
-				header('Location: '.$language[$lc]);
-				die();
-			}
-			else {
-				// cookie creation for 24h
-				setcookie( 'comingsoon_language', $lc, time() + 60*60*24,'/' );
-			}
-		}
-	}
-}
-
-
-// Connecting to MySQL database
-$mysql = new mysqli($conf['db_hostname'], $conf['db_username'], $conf['db_password'], $conf['db_name']);
-if ($mysql->connect_errno) {
-	echo "Error during MySQL database connection : (" . $mysql->connect_errno . ") " . $mysql->connect_error;
-}
-
-
-// URL of the directory of the coming soon landing page
-function url_origin($s, $use_forwarded_host=false)
-{
-	$ssl = (!empty($s['HTTPS']) && $s['HTTPS'] == 'on') ? true:false;
-	$sp = strtolower($s['SERVER_PROTOCOL']);
-	$protocol = substr($sp, 0, strpos($sp, '/')) . (($ssl) ? 's' : '');
-	$port = $s['SERVER_PORT'];
-	$port = ((!$ssl && $port=='80') || ($ssl && $port=='443')) ? '' : ':'.$port;
-	$host = ($use_forwarded_host && isset($s['HTTP_X_FORWARDED_HOST'])) ? $s['HTTP_X_FORWARDED_HOST'] : (isset($s['HTTP_HOST']) ? $s['HTTP_HOST'] : $s['SERVER_NAME']);
-	return $protocol . '://' . $host . $port;
-}
-function url_directory($s, $use_forwarded_host=false)
-{
-	return url_origin($s, $use_forwarded_host) . dirname($s['REQUEST_URI']);
-}
-$conf ['website_url_directory'] = url_directory($_SERVER);
-
-
-// Including language
-$language_path = 'languages/' . $conf['current_language'] . '.php';
-if (!file_exists($language_path)) $language_path = '../'.$language_path;
-require_once($language_path);
 

@@ -1,4 +1,6 @@
 <?php
+if ( basename(__FILE__) == basename($_SERVER["SCRIPT_FILENAME"]) ) { die('Not allowed'); }
+
 class Pagination
 {
 	function getStartRow($page, $limit)

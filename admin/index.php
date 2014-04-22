@@ -1,35 +1,60 @@
 <?php 
-require_once('../config/config.php');
+require_once('../php/config.php');
+include_once ('../php/init.php');
 require_once('../php/checklogin.php');
+
+if (isset($_GET['admin'])) {
+	if ($_GET['admin']=='action') {
+		include ('../php/action.php');
+	}
+	elseif ($_GET['admin']=='update') {
+		include ('../php/settingsupdate.php');
+	}}
+
 ?>
 <!DOCTYPE html>
 <html>
 	<head>
-		<title><?php printf($lang['page_title_header'], $conf['website_name']); ?></title>
-		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<title><?php $lang['seo_title']; ?></title>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<link rel="icon" href="../images/favicon.png" type="image/png" />
 		<link rel="shortcut icon" href="../favicon.ico" />
 		<!-- Cascading Style Sheets -->
 		<link href="../css/bootstrap.min.css" rel="stylesheet" media="screen" />
 		<link rel="stylesheet" href="../css/font-awesome.min.css" />
+		<link rel="stylesheet" type="text/css" href="../css/colours.php" />
 		<link rel="stylesheet" type="text/css" href="../css/custom.css" />
-		<!--[if IE 7]>
-			<link rel="stylesheet" href="path/to/font-awesome/css/font-awesome-ie7.min.css">
-			<![endif]-->
-		<!-- /Cascading Style Sheets -->
 	</head>
-	<body><?php if(isset($_SESSION['logged'])) { ?>
+	<body><?php 
+	if(isset($_GET['admin'])) {
+		if ($_GET['admin']=='logout') {
+			?><div class="admin"><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><?php
+			die('Logged Out');
+		}
+	}
+	if(isset($_SESSION['logged'])) { ?>
 		<div class="logout">
-			<p><?php echo $lang['welcome_admin']; ?> | <a href='../php/logout.php'><?php echo $lang['logout']; ?></a></p>
+			<p><?php echo $lang['welcome_admin']; ?> | <a href='index.php'><?php echo $lang['subscribers']; ?></a> | <a href="index.php?admin=settings"><?php echo $lang['settings']; ?></a> | <a href='index.php?admin=logout'><?php echo $lang['logout']; ?></a></p>
 		</div><?php } ?>
 		<!-- Main Content -->
 		<div class="admin">
 			<?php
-			if (isset($_SESSION['logged'])) { 
-				require_once('../php/dashboard.php');
+			if (isset($_SESSION['logged'])) {
+				if (isset($_GET['admin'])) {
+					if ($_GET['admin'] == 'settings' || $_GET['admin']=='update') {
+						require_once('../php/settings.php');
+					}
+					elseif ($_GET['admin'] == 'update') {
+						require_once('../php/settingsupdate.php');
+					}
+				}
+				else require_once('../php/dashboard.php');
 			} else {
-				require_once('../php/login.php'); } ?>
+				require_once('../php/login.php');
+				 } ?>
+		</div>
+		<div class='footer'>
+			<a href='https://github.com/Agence-Tandem/'>Fantastic Coming Soon</a> by <a href="http://tandem-avignon.com">Tandem</a>
 		</div>
 		<!-- /Main Content -->
 		<!-- JavaScript-->

@@ -1,4 +1,6 @@
 <?php 
+
+
 require_once('../php/sorting.php');
 ?>
 	<div class='subscriberls'>
@@ -10,7 +12,7 @@ require_once('../php/sorting.php');
 		<p class="pull-right"><?php echo $lang['active_user']; ?> : <?php echo $active['rows']; ?> | <?php echo $lang['inactive_user']; ?> : <?php echo $inactive['rows'] ?> | <?php echo $lang['total']; ?> : <?php echo $totalrows; ?> <?php echo $lang['subscribers'] ?></p>
 		<div class="subtable">
 			<?php if($totalrows>0) { ?>
-			<form method="post" action="../php/action.php">
+			<form method="post" action="index.php?admin=action">
 				<table class='table table-hover'>
 					<thead>
 						<tr>

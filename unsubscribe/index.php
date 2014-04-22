@@ -1,5 +1,7 @@
 <?php
-require_once('../config/config.php');
+require_once ('php/config.php');
+include_once ('php/languagedetect.php');
+include_once ('php/init.php');
 
 $err = "";
 $pattern = "^([a-zA-Z0-9_\-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([a-zA-Z0-9\-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$^";
@@ -32,18 +34,16 @@ if (isset($_GET['email'])) {
 ?><!DOCTYPE html>
 <html>
 	<head>
-		<title>Viraivil | Coming Soon</title>
+		<title><?php echo $lang['seo_title']; ?></title>
 		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<meta name="description" content="<?php echo $conf['website_description_header']; ?>">
 		<!-- Cascading Style Sheets -->
+		<link rel="shortcut icon" href="../favicon.ico" />
 		<link href="../css/bootstrap.min.css" rel="stylesheet" media="screen" />
 		<link rel="stylesheet" href="../css/font-awesome.min.css" />
+		<link rel="stylesheet" type="text/css" href="/css/colours.php" />
 		<link rel="stylesheet" type="text/css" href="../css/custom.css" />
-		<!--[if IE 7]>
-			<link rel="stylesheet" href="path/to/font-awesome/css/font-awesome-ie7.min.css">
-			<![endif]-->
-		<!-- /Cascading Style Sheets -->
 	</head>
 	<body>
 		<!-- Main Content -->

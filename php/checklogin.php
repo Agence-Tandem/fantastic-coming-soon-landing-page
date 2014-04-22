@@ -1,6 +1,12 @@
 <?php
+if ( basename(__FILE__) == basename($_SERVER["SCRIPT_FILENAME"]) ) { die('Not allowed'); }
+
 session_start();
-include_once('config.php');
+
+if (isset($_GET['admin']) && $_GET['admin']=='logout') {
+		include ('../php/logout.php');
+}
+
 //Check Cookie, If Available Create Login Session  
 if (isset($_COOKIE['username']) && isset($_COOKIE['password']))
 	if ($_COOKIE['username'] == $conf['admin_username'] && $_COOKIE['password'] == md5($conf['admin_password'])) {

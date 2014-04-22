@@ -138,7 +138,7 @@ jQuery(document).ready(function () {
 	/*	Contact Form
 	/* ---------------------------------------------------------------------- */
 	var $contactform = $('#form'),
-		$success = 'Your message has been sent. Thank you!';
+		$success = $('#contact_message_sent').val();
 
 		$contactform.submit(function () {
 		$.ajax({
@@ -168,7 +168,7 @@ jQuery(document).ready(function () {
 	/*	Subscribe
 	/* ---------------------------------------------------------------------- */
 	var $subscribeform = $('#subscribe'),
-		$subscribesuccess = 'You Have Successfully Subscribed. Thank you!';
+		$subscribesuccess = $('#newsletter_subscribed').val();;
 
 	$subscribeform.submit(function () {
 		$.ajax({

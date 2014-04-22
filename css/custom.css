@@ -1,6 +1,4 @@
-body,.modal-content {
-/* background:#EFEFEF url(../images/bg.jpg) repeat top left; */
-}
+
 
 .content {
 position:relative;
@@ -8,8 +6,12 @@ text-align:center;
 padding-top:20px;
 }
 
+.logo {
+	margin: 20px 0 20px;
+}
+
+
 #comingsoon_block {
-	background-color: #F2F2F2;
 	margin : 20px 0px 0px;
 	padding : 1px 0px 40px;
 }
@@ -47,8 +49,6 @@ padding-top:20px;
 
 .social-icons ul li {
 display:inline-block;
-/* width:30px; */
-/* text-align:left; */
 }
 
 .social-icons ul {
@@ -59,16 +59,10 @@ display:inline-block;
 	padding : 10px;
 }
 
-
 .social-icons ul li a {
-color:#333;
 text-decoration:none;
 }
 
-.btn {
-background-color:#333;
-border-color:#333;
-}
 
 .form-control:focus {
 border:1px solid #ccc;
@@ -87,12 +81,9 @@ max-width: 505px;
 
 .workprogress .progress {
 height:30px;
-background-color:#f0f0f0;
 }
 
 .workprogress .progress-bar {
-background-color:#D13A7A;
-color:#000;
 font-size:13px;
 font-weight:bold;
 padding:6px 0;
@@ -141,7 +132,6 @@ padding-top:15px;
 display:inline-block;
 border:0;
 margin:0;
-color :#D13A7A;
 font-weight:bold;
 }
 
@@ -199,7 +189,6 @@ padding-bottom:25px;
 .subscriberls .empty {
 padding-top:200px;
 font-weight:bold;
-color:#D13A7A;
 }
 
 .subscriberls .header img {
@@ -216,22 +205,8 @@ padding-bottom:25px;
 margin:0;
 }
 
-.pagination li a {
-color:#000;
-}
-
-.pagination .active span:hover {
-background-color:#D13A7A;
-color:#000;
-border-color:#D13A7A;
-}
-
 th {
 text-align:center;
-}
-
-.content h1,i:hover, .modal h2,.modal h4,.service i,.logout a,.subscriberls .table a {
-color:#D13A7A;
 }
 
 .subscribe,.modal-body,.unsubscribe {
@@ -241,11 +216,6 @@ padding-top:15px;
 .subscribe input[type=text],input[type=email],.unsubscribe input[type=text],input[type=email] {
 width:25%;
 display:inline-block;
-}
-
-.btn:hover,.btn:focus,.btn:active,.btn.active,.pagination .active span {
-background-color:#D13A7A;
-border-color:#D13A7A;
 }
 
 #map label,#map-canvas label {
@@ -261,12 +231,29 @@ max-width:none!important;
 text-align:left;
 }
 
-.service h4,.service i:hover {
-color:#333;
-}
 .subscriberls .subtable
 {
-clear:both;
+ clear:both; 
+}
+
+.subform {
+	text-align : left;
+	width: 600px;
+	margin: 0 auto;
+}
+
+
+.subform label {
+	font-weight: normal;
+}
+
+input#map_address {
+	width : 350px;
+}
+
+.footer {
+	margin: 30px;
+	text-align: center;
 }
 
 @media screen and (max-width: 700px) { 

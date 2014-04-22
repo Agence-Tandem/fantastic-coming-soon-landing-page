@@ -1,12 +1,12 @@
 <?php
-require_once('../config/config.php');
+if ( basename(__FILE__) == basename($_SERVER["SCRIPT_FILENAME"]) ) { die('Not allowed'); }
 
 $sql = "SELECT * FROM `" . $conf['db_table_subscribers'] . "`";
 $select  = $mysql->query($sql);
 $rowcount = $select->num_rows;
 if (isset($_POST['button'])) {
 	// Delete Selected Rows if Delete Button Active
-	if ($_POST['button'] == "Delete") {
+	if ($_POST['button'] == $lang['delete']) {
 		if (isset($_POST['checkbox'])) {
 			$checkbox = $_POST['checkbox'];
 			for ($i = 0; $i < $rowcount; $i++) {
@@ -20,7 +20,7 @@ if (isset($_POST['button'])) {
 		}
 	}
 	//Export All Subscriber Details in CSV Format
-	else if ($_POST['button'] == "Export All") {
+	else if ($_POST['button'] == $lang['export_all']) {
 		if (!$select)
 			die('Couldn\'t fetch records');
 		$num_fields = $mysql->field_count;
@@ -31,7 +31,7 @@ if (isset($_POST['button'])) {
 		$fp = fopen('php://output', 'w');
 		if ($fp && $select) {
 			header('Content-Type: text/csv');
-			header('Content-Disposition: attachment; filename="Subscriber.csv"');
+			header('Content-Disposition: attachment; filename="Subscribers.csv"');
 			header('Pragma: no-cache');
 			header('Expires: 0');
 			fputcsv($fp, $headers);
@@ -41,15 +41,8 @@ if (isset($_POST['button'])) {
 			die;
 		}
 	}
-	else if ($_POST['button'] == "Delete All") {
+	else if ($_POST['button'] == $lang['delete_all']) {
 		$sql = "DELETE FROM `" . $conf['db_table_subscribers'] . "`";
 		$result = $mysql->query($sql);
-		if ($result) {
-			header("location:../admin/index.php");
-		}
 	}
-} else {
-	header("location:../admin/index.php");
 }
-
-?>
