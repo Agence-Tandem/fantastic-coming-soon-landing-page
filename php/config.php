@@ -31,14 +31,14 @@ $conf['website_name'] = 'Fantastic Coming Soon Landing Page'; // Name of the Web
 
 // Countdown
 $conf['countdown_activated'] = TRUE; // Show or hide the countdown with TRUE or FALSE
-$conf['countdown_day'] = 1;
-$conf['countdown_month'] = 11;
-$conf['countdown_year'] = 2014;
+$conf['countdown_day'] = 0;
+$conf['countdown_month'] = 0;
+$conf['countdown_year'] = 0;
 $conf['countdown_hour'] = 0; // (0-24)
 $conf['countdown_min'] = 0; // (0-60)
 $conf['countdown_sec'] = 0; // (0-60)
 $conf['countdown_millisec'] = 0; // (0-1000)
-$conf['countdown_timer'] = "00:00:00:00"; // dd:hh:mm:ss
+$conf['countdown_timer'] = "20:00:00:00"; // dd:hh:mm:ss
 
 
 // Progress bar
