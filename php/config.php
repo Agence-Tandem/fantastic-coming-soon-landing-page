@@ -97,12 +97,12 @@ $conf['show_prev_next'] = TRUE; // Hide / show previous and next button
 
 
 // Language used in this installation
-$conf['current_language'] = 'fr'; // Select a language in the /languages/ directory
+$conf['current_language'] = 'en'; // Select a language in the /languages/ directory
 // Edit the language file in the /languages/ folder to adjust content to your specific needs
 
 
 // activate the multilingual functionality
-$conf['multilingual'] = TRUE; // Use TRUE to activate the multiligual functionality, use FALSE to deactivate 
+$conf['multilingual'] = FALSE; // Use TRUE to activate the multiligual functionality, use FALSE to deactivate 
 
 
 // IF YOU DO NOTE USE THE MULTILINGUAL FUNCTIONALITY you can stop editing here.
@@ -110,8 +110,8 @@ $conf['multilingual'] = TRUE; // Use TRUE to activate the multiligual functional
 
 // adress of the pages for all the available languages
 $language = array (
-	'en' => 'http://localhost/coming-soon-landing-page/master/fr', // repeat for all the needed languages 
-	'fr' => 'http://localhost/coming-soon-landing-page/master/',
+	'en' => 'http://localhost', // repeat for all the needed languages 
+	'fr' => 'http://localhost/fr/',
 );
 
 
